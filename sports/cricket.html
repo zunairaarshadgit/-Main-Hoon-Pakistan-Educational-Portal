@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pakistan Cricket</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Georgia', serif;
+      line-height: 1.8;
+    }
+    .container-custom {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+    }
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .infobox {
+      float: right;
+      margin: 0 0 20px 20px;
+      width: 260px;
+      background-color: #f8f9fa;  
+      border: 1px solid #a2a9b1;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    .infobox .carousel-inner {
+      width: 100%;
+      height: 300px;
+    }
+    .infobox .carousel-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #a2a9b1;
+      cursor: pointer;
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      font-size: 1.5rem;
+      margin-top: 30px;
+    }
+    p {
+      text-align: justify;
+    }
+    blockquote {
+      border-left: 3px solid #ccc;
+      padding-left: 10px;
+      font-style: italic;
+      color: #555;
+    }
+    @media (max-width: 768px) {
+      .infobox {
+        float: none;
+        width: 100%;
+        margin: 0 auto 20px auto;
+      }
+    }
+    .modal-img {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    .modal-content-img {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .download-btn {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #fff;
+      background-color: #0d6efd;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-custom">
+    <h1 class="title">Pakistan Cricket: Legacy of Passion and Glory</h1>
+
+    <div class="infobox">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../images/imran.jpg" alt="1992 World Cup" class="d-block w-100 slider-img">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/cric.jpg" alt="2009 T20 Win" class="d-block w-100 slider-img">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/afridi.jpg" alt="Famous Players" class="d-block w-100 slider-img">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <strong>Founded:</strong> 1952<br>
+      <strong>Governing Body:</strong> Pakistan Cricket Board (PCB)<br>
+      <strong>ICC Membership:</strong> Full Member<br>
+      <strong>World Cup Wins:</strong> 1992 (ODI), 2009 (T20)<br>
+      <a href="../pdf/Pakistan Cricket.pdf" download class="download-btn">Download PDF Report</a>
+    </div>
+
+    <p>
+      Cricket in Pakistan is more than just a sport—it's a national passion that unites the country's diverse regions and people. Since gaining Test status in 1952, Pakistan has produced some of the most talented cricketers in the world and achieved memorable victories on the international stage.
+    </p>
+
+    <h2>History and Development</h2>
+    <p>
+      The roots of cricket in Pakistan date back to British colonial rule, but the sport truly blossomed after the country's independence in 1947. Pakistan played its first official Test match against India in 1952. Over the decades, the nation emerged as a cricketing powerhouse with fierce rivalries, especially against India and Australia.
+    </p>
+    <p>
+      Pakistan's unpredictable yet thrilling style of play made them a team to watch. The 1980s and 1990s were golden years, with legendary players like Imran Khan, Wasim Akram, and Waqar Younis redefining fast bowling and team spirit.
+    </p>
+
+    <h2>Famous Players</h2>
+    <ul>
+      <li><strong>Imran Khan:</strong> The charismatic leader who led Pakistan to World Cup glory in 1992.</li>
+      <li><strong>Wasim Akram:</strong> Widely regarded as the best left-arm fast bowler in cricket history.</li>
+      <li><strong>Waqar Younis:</strong> Known for deadly yorkers and forming a lethal duo with Akram.</li>
+      <li><strong>Shahid Afridi:</strong> A fan-favorite for his explosive batting and leg-spin bowling.</li>
+      <li><strong>Younis Khan:</strong> Pakistan's highest Test run scorer and 2009 T20 World Cup captain.</li>
+      <li><strong>Babar Azam:</strong> The modern-day batting maestro, leading the team with consistency and flair.</li>
+    </ul>
+
+    <h2>1992 World Cup Victory</h2>
+    <p>
+      Pakistan's crowning moment came in March 1992 under the leadership of Imran Khan. After a slow start in the tournament, the team staged a remarkable comeback to reach the finals. In a thrilling match against England at the Melbourne Cricket Ground, Pakistan posted a solid total and defended it successfully, thanks to stellar performances by Wasim Akram and Inzamam-ul-Haq.
+    </p>
+    <p>
+      The victory not only uplifted the nation's morale but also solidified cricket's place in Pakistani culture. The image of Imran Khan lifting the trophy became an iconic moment in sports history.
+    </p>
+
+    <h2>2009 ICC T20 World Cup Win</h2>
+    <p>
+      In 2009, Pakistan claimed their first ICC T20 World Cup title in England. Led by Younis Khan, the team defeated Sri Lanka in the final at Lord’s. Umar Gul’s superb bowling and Shahid Afridi’s all-round brilliance were key to Pakistan’s success. The victory was seen as redemption after a disappointing performance in the 2007 edition and came at a time when the country was facing security challenges.
+    </p>
+
+    <h2>Modern Era and Achievements</h2>
+    <p>
+      Despite security concerns limiting international matches on home soil, Pakistan cricket has continued to thrive. The return of international cricket, the launch of the Pakistan Super League (PSL), and the emergence of young stars like Shaheen Afridi and Mohammad Rizwan have revitalized the sport domestically and internationally.
+    </p>
+    <h2>Pakistan Super League (PSL)</h2>
+<p>
+  The Pakistan Super League (PSL), launched in 2016 by the Pakistan Cricket Board, has become a cornerstone of modern Pakistani cricket. Featuring six franchises—Karachi Kings, Lahore Qalandars, Peshawar Zalmi, Islamabad United, Quetta Gladiators, and Multan Sultans—the league has not only captivated domestic audiences but also gained international recognition.
+</p>
+<p>
+  PSL has played a crucial role in revitalizing cricket in Pakistan, bringing international players to the country and giving young local talent a global stage. Stars like Shaheen Shah Afridi, Shadab Khan, and Mohammad Haris rose to fame through their performances in the league. PSL also played a pivotal role in bringing international cricket back to Pakistani soil, hosting matches in Lahore, Karachi, and Multan.
+</p>
+<p>
+  The league’s high-quality production, competitive matches, and festive atmosphere have made it one of the top T20 leagues in the world.
+</p>
+
+<h2>Future Prospects of Young Players</h2>
+<p>
+  Pakistan has always been a breeding ground for raw cricketing talent, and the new generation continues that legacy. Young players like:
+</p>
+<ul>
+  <li><strong>Shaheen Shah Afridi:</strong> A left-arm fast bowler known for his pace, swing, and leadership qualities. He has already become a match-winner across formats.</li>
+  <li><strong>Mohammad Haris:</strong> A fearless batsman known for his aggressive stroke play, Haris has made an impact in T20s and is considered a rising star.</li>
+  <li><strong>Abdullah Shafique:</strong> A technically sound batsman who has impressed in Test cricket with his calm demeanor and consistent performances.</li>
+  <li><strong>Naseem Shah:</strong> A teenage pace sensation with a fiery attitude and sharp seam movement. He’s shown promise in all formats.</li>
+  <li><strong>Abrar Ahmed:</strong> A mystery spinner who stunned the world on his Test debut with a 10-wicket haul against England.</li>
+</ul>
+<p>
+  With world-class training facilities, PSL exposure, and increasing international opportunities, these players represent the bright future of Pakistan cricket. If nurtured properly, they could carry forward the nation's cricketing legacy for decades to come.
+</p>
+
+    <h2>Conclusion</h2>
+    <p>
+      Pakistan's cricketing journey is a story of talent, resilience, and national pride. From the dusty grounds of Lahore to the world stage, Pakistani cricketers have repeatedly proven their mettle. With a growing pool of talent and passionate support from fans, the future of Pakistan cricket remains bright and full of promise.
+    </p>
+
+    <blockquote>
+      "Cricket is the heartbeat of Pakistan — a game that unites, inspires, and defines a nation."
+    </blockquote>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal-img">
+      <span class="close-btn" onclick="document.getElementById('imageModal').style.display='none'">&times;</span>
+      <img class="modal-content-img" id="imgInModal">
+      <a id="downloadBtn" class="download-btn" download>Download Image</a>
+    </div>
+
+    <script>
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imgInModal");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const sliderImgs = document.querySelectorAll(".slider-img");
+
+      sliderImgs.forEach(img => {
+        img.addEventListener("click", function() {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          downloadBtn.href = this.src;
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
