@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Hoon PAKISTAN</title>
+
+    <!-- -------------------------------------------- bootstrap -------------------------------------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+	<!-- Toastr CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!-- -------------------------------------------- fontawsome -------------------------------------------- -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("yvCyB3mbZUAvVpBU5"); // <-- Replace with your actual public key
+        })();
+    </script>
+
+
+
+</head>
+
+<style>
+    body {
+        background-image: linear-gradient(#f8f8f849, #91c4a096), url('images/pakistan.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .nav-header {
+        margin-top: 38px;
+        background: rgba(0, 95, 0, 0.623);
+    }
+
+    .navbar-news-ticker {
+        width: 100%;
+        background-color: #940000dc;
+        border-top: 3px solid #ffcc00;
+        border-bottom: 3px solid #ffcc00;
+    }
+
+    /* ----------------------- */
+    .news-ticker {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        padding: 1px 0;
+        overflow: hidden;
+
+        width: 100%;
+    }
+
+    .ticker-title {
+        padding: 0 20px;
+        font-size: 16px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .ticker-wrapper {
+        overflow: hidden;
+        position: relative;
+        flex-grow: 1;
+    }
+
+    .ticker-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll-left 26s linear infinite;
+    }
+
+    .ticker-content span {
+        display: inline-block;
+        padding: 0 40px;
+        font-size: 15px;
+    }
+
+    @keyframes scroll-left {
+        100% {
+            transform: translateX(100%);
+        }
+
+        0% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Responsive fix */
+    @media (max-width: 768px) {
+        .ticker-title {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+
+        .ticker-content span {
+            font-size: 13px;
+            padding: 0 20px;
+        }
+    }
+
+    .logo {
+        position: relative;
+        top: 90px;
+    }
+
+    /* ----------------------- */
+    .search-box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #dfe1e5;
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        border-radius: 24px;
+        padding: 10px 20px;
+    }
+
+    .search-box input {
+        flex: 1;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        background: transparent;
+    }
+
+
+    .donation-container {
+        position: relative;
+        /* height: 70vh; */
+        /* Remove this */
+    }
+
+
+
+    .donation-container .donation-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .donation-image {
+        background-image: linear-gradient(#ff000000, #ff000000), url('images/image_2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* height: 70vh; */
+        /* Remove this */
+        min-height: 300px;
+        /* optional */
+        position: relative;
+    }
+
+
+    .donation-image .donation-image-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 50%;
+        background-color: #6c757d;
+        /* Bootstrap secondary color */
+        color: white;
+        padding: 10px;
+        border-radius: 0 0 0.75rem 0;
+    }
+
+    .lg-w-50 {
+        width: 50% !important;
+    }
+
+    @media (max-width: 768px) {
+        .donation-image .donation-image-text {
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 0.75rem 0.75rem;
+            width: 90% !important;
+        }
+
+        .donation-image {
+            height: 80vh;
+        }
+
+        .lg-w-50 {
+            width: 100% !important;
+        }
+
+        .nav-header {
+            margin-top: 86px;
+        }
+    }
+
+
+    .search-box {
+        position: relative;
+    }
+
+    #suggestionList {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: none;
+    }
+
+
+    .footer-contact-form {
+        background-color: rgba(6, 53, 1, 0.863);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-contact-form input,
+    .footer-contact-form textarea {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .footer-contact-form input::placeholder,
+    .footer-contact-form textarea::placeholder {
+        color: #e0e0e0;
+    }
+
+    .footer-contact-form input:focus,
+    .footer-contact-form textarea:focus {
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+        color: white;
+    }
+
+    .footer-contact-form button {
+        width: 100%;
+        background-color: #007f00;
+        border: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    .footer-contact-form button:hover {
+        background-color: #0c6305;
+    }
+</style>
+
+<body>
+
+
+    <div class=" px-3 py-1 fixed-top" style="background-color: rgba(255, 255, 255, 0.699);">
+        <div class="d-lg-flex justify-content-between align-items-center">
+
+            <div class="phone-email d-lg-flex">
+                <div class="me-2"><strong>Phone:</strong> <a href="#">+1 292 3293 4238</a></div>
+                <div><strong>Email:</strong> <a href="#">zunairaarshad547@gmail.com</a></div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="me-4">
+                    <a href="#" class="icon mx-1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon mx-1"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon mx-1"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icon mx-1"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="dropdown">
+                    <a class="btn btn-sm btn-light" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Languages
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Urdu</a></li>
+                        <li><a class="dropdown-item" href="#">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark nav-header">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="images/logo.jpeg" class="me-2 rounded-circle" width="50" alt="">
+                Main Ho Pakistan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="help&center.html">help center</a></li>
+                    <li class="nav-item"><a class="nav-link" href="F&Q's.html">F&Qs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-news-ticker">
+        <div class="container-fluid">
+            <div class="news-ticker">
+                <div class="ticker-title">Top Headlines:</div>
+                <div class="ticker-wrapper">
+                    <div class="ticker-content">
+                        <span>معاشی اصلاحات کا اعلان — مہنگائی پر قابو پانے کے لیے نئے معاشی اقدامات کا وعدہ۔</span>
+                        <span>نوجوانوں کے لیے روزگار اسکیم — حکومت 1 لاکھ نوکریاں فراہم کرے گی آئندہ 6 ماہ میں۔</span>
+                        <span>بجلی کے نرخوں میں کمی کا عندیہ — صارفین کو ریلیف دینے کے لیے ٹیرف پر نظرثانی کی جائے
+                            گی۔</span>
+                        <span>چھوٹے کاروبار کے لیے قرضوں میں آسانی — بلاسود قرضے نوجوان اور خواتین کو ترجیحی بنیادوں پر
+                            دیے جائیں گے۔</span>
+                        <span>شفافیت اور احتساب کا نظام مضبوط بنانے کا اعلان — کرپشن کے خلاف کریک ڈاؤن تیز ہوگا۔</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="m-auto col-md-4 text-center">
+                <div class="logo">
+                    <img src="images/logo2.png" alt="Logo" width="80%" />
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6 m-auto">
+                <form class="search-form">
+                    <div class="search-box" style="position: relative;">
+                        <input type="text" id="searchInput" placeholder="Search or type a URL"
+                            style="padding-left: 35px; padding-right: 70px;" />
+                        <ul id="suggestionList" class="list-group position-absolute w-100 z-3" style="display: none;">
+                        </ul>
+
+                        <!-- Search icon -->
+                        <!-- Search icon -->
+                        <i class="fas fa-search" id="searchIcon"
+                            style="position: absolute; top: 50%; right: 30px; transform: translateY(-50%); color: gray; cursor: pointer;"></i>
+
+                           
+                       <!-- Mic icon -->
+<i id="micButton" class="fas fa-microphone"
+style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); color: gray; cursor: pointer;"></i>
+
+                        <!-- ✅ Logo on Left side -->
+                        <img src="images/logo.jpeg" alt="Logo"
+                            style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); height: 35px; " />
+
+
+                        <!-- Suggestions dropdown -->
+                        <ul id="suggestionList" class="list-group"
+                            style="position: absolute; top: 100%; left: 0; right: 0; z-index: 10; display: none;"></ul>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-10 m-auto text-center text-md-start">
+                <a href="main-topics/favPer.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Favourite Personality">Favourite Personality</a>
+                <a href="main-topics/war.html" class="btn btn-light me-3 my-2" data-pg-name="War">War</a>
+                <a href="main-topics/sports.html" class="btn btn-light me-3 my-2" data-pg-name="Sports">Sports</a>
+                <a href="main-topics/culture&t.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Culture and Traditions">Culture and Traditions</a>
+                <a href="main-topics/geography-places.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Geography & Places">Geography & Places</a>
+                <a href="main-topics/politics&gov.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Politics and Government">Politics and Government</a>
+                <a href="main-topics/economy&dev.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Economy and Development">Economy and Development</a>
+                <a href="main-topics/Terrorist.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Terrorist Attacks & Responses">Terrorist Attacks & Responses</a>
+                <a href="main-topics/military-s.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Military Strategy and Structure">Military Strategy and Structure</a>
+                <a href="main-topics/Internal Military.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Science and Technology">Internal Military Operations</a>
+                <a href="main-topics/geography-places.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Geography & Places">Geography & Places</a>
+                <a href="main-topics/politics&gov.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Politics and Government">Politics and Government</a>
+                <a href="nationalsongs.html" class="btn btn-light me-3 my-2"
+                    data-pg-name="Science and Technology">National Songs</a>
+
+
+            </div>
+        </div>
+    </div>
+    <section class="donation-section mb-5">
+        <div class="container">
+            <div class="row g-0 align-items-stretch">
+                <!-- Donation Content -->
+                <div class="col-lg-6 d-flex">
+                    <div
+                        class="p-4 p-md-5 bg-white shadow rounded-0 text-center w-100 d-flex flex-column justify-content-center">
+                        <h2 class="mb-3">Support Our Cause</h2>
+                        <p class="mb-4">Your donation will help us provide essential resources.</p>
+
+                        <input type="number" min="0" step="10" class="form-control mb-3" placeholder="Enter Amount" />
+                        <button onclick="window.location.href='donation.html'" class="btn btn-success w-100 mb-3">Donate
+                            Now</button>
+
+                        <div class="payment-options">
+                            <p class="mb-2">Or donate via:</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm">PayPal</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Credit Card</a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">Bank Transfer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Section -->
+                <div class="col-lg-6 d-flex">
+                    <img src="images/donate.jpeg" alt="Donation"
+                        class="img-fluid w-100 h-100 object-fit-cover rounded-0 shadow" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="text-white pt-5 pb-3" style="background: rgba(0, 95, 0, 0.555);">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="container py-3">
+                    <div class="row align-items-center">
+                        <div class="col-6 text-start">
+                            <h1 class="m-0">ME HOON PAKISTAN</h1>
+                        </div>
+                        <div class="col-6 text-end ">
+                            <a href="#" class="text-white mx-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white mx-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white mx-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white mx-3"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <hr>
+                </div>
+                <!-- Column 1: Main hoo Pakistan -->
+                <div class="col-md-3 mb-4">
+                    <h3>Me Hoon Pakistan</h3>
+                    <p class="mb-2">
+                        <i class="bi bi-geo-alt-fill me-2 text-center"></i>
+                        Located in South Asia, Pakistan spans from the Arabian Sea in the south to the towering
+                        Karakoram mountains in the north. The country covers an area of 881,913 square kilometers and
+                        shares borders with India, Afghanistan, Iran, and China. With a population of over 240 million
+                        (2025 est.), it is the fifth most populous country in the world.
+                    </p>
+
+                    <p class="mb-2">
+                        <i class="bi bi-telephone-fill me-2"></i> <a href="#">+2 392 3929 210</a>
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope-fill me-2"></i> <a href="#">nestprime513@gmail.com</a>
+                    </p>
+                    <!-- Form inside the first footer column -->
+
+                </div>
+
+                <!-- Column 2: Latest News -->
+                <div class="col-md-3 mb-4">
+                    <h5>Latest News</h5>
+
+                    <a href="https://youtu.be/fDieVqySqGc?si=1g9idtLZUxCocI8o" target="_blank"
+                        class="text-white text-decoration-none">
+                        <div class="d-flex mb-3">
+                            <img src="images/news1.jpg" class="me-2" alt="" width="60px" height="70px">
+                            <div>
+                                <p class="mb-1 small">Pakistan Faces Major Power Crisis Amid Heatwave</p>
+                                <small>May 24, 2025 · Geo News</small>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://youtu.be/ov4N_SezD6Q?si=WYmslZI1D9lrMTuz" target="_blank"
+                        class="text-white text-decoration-none">
+                        <div class="d-flex">
+                            <img src="images/news2.jpg" class="me-2" alt="" width="60px" height="70px">
+                            <div>
+                                <p class="mb-1 small">Supreme Court Issues Landmark Ruling on Election Delay</p>
+                                <small>May 23, 2025 · ARY News</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <!-- Column 3: Best Sellers -->
+                <div class="col-md-3 mb-4">
+                    <h5>THE FOUNDER OF PAKISTAN</h5>
+                    <img src="images/quid1.jpg" class="img-fluid mb-2" alt="">
+                    <p>Quaid-e-Azam Mahammad Ali Jinnah</p>
+
+                </div>
+
+                <!-- Column 4: Instagram -->
+                <div class="col-md-3 mb-4">
+                    <h5>TOPICS</h5>
+                    <div class="row g-1">
+
+                        <div class="row g-1 justify-content-center">
+                            <div class="col-4">
+                                <a href="main-topics/culture&t.html"><img style="height: 150px;" src="images/cloth.jpg"
+                                        class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-4">
+                                <a href="main-topics/favPer.html"><img style="height: 150px;" src="images/quid1.jpg"
+                                        class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-4 ">
+                                <a href="main-topics/war.html"><img style="height: 150px;" src="images/War1.jpg"
+                                        class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-4 pt-2">
+                                <a href="nationalsongs.html"><img style="height: 100px;" src="images/nationalsongs.jpg"
+                                        class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-4 pt-2">
+                                <a href="main-topics/economy&dev.html"><img style="height: 100px;"
+                                        src="images/industry 2.jpg" class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-4 pt-2">
+                                <a href="main-topics/Terrorist.html"><img style="height: 100px;" src="images/aps 2.jpg"
+                                        class="img-fluid" alt=""></a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Footer Bottom -->
+                        <div class="text-center border-top pt-3 mt-4">
+                            <p class="mb-0">Copyright © 2025 All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- =============== -->
+            <div class="footer-contact-form">
+                <h5 class="text-white text-center mb-3">Contact Us</h5>
+                <form id="contact-form" method="POST" action="send_email.php">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                    <input type="email" name="user_email" class="form-control" placeholder="Email" required>
+                    <input type="hidden" name="email" class="form-control" placeholder="Email" required
+                        value="nestprime513@gmail.com">
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                    <textarea id="message" name="message" rows="3" class="form-control" placeholder="Your Message"
+                        required></textarea>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Static list of pages
+            const pages = [
+                { text: "Abdul Sattar", href: "favper/Abdul Sattar.html" },
+                { text: "Quaid-e-Azam Muhammad Ali Jinnah", href: "favper/Quaid-e-Azam MuhammadAliJinnah.html" },
+                { text: "Dr. Abdul Qadeer", href: "favper/dr_abdulqadeer.html" },
+                { text: "Dr. Adeeb Rizvi", href: "favper/Dr.Adeeb Rizvi.html" },
+                { text: "Imran Khan", href: "favhtml/Imran-khan.html" },
+                { text: "Dr. Abdus Salam", href: "favper/drabdusalam.html" },
+                { text: "Fatima Jinnah", href: "favper/fatima-jinnah.html" },
+                { text: "Jehangir", href: "favper/jahangeer.html" },
+                { text: "Liaquat Ali Khan", href: "favper/LiaquatAlikhan.html" },
+                { text: "Malala Yousafzai", href: "favper/Malalayousufzai.html" },
+                { text: "Dr. Ruth Pfau", href: "favper/Ruth Pfau.html" },
+                { text: "Wasim Akram", href: "favper/WaseemAkram.html" },
+                { text: "Allama Iqbal", href: "favper/Allama Iqbal.html" },
+                { text: "Mahammad Alam", href: "favper/mm alam.html" },
+                { text: "Captain Karnal Sher Khan (Shaheed)", href: "favper/caption kernal.html" },
+                { text: "Major Raja Aziz Bhatti (Shaheed)", href: "favper/major raja aziz.html" },
+                // war
+                { text: "Balakot Airstrike & Aftermath", href: "war/balakot.html" },
+                { text: "Border Skirmishes with India", href: "war/BorderSkrimishes.html" },
+                { text: "Bunyan ul Marsoos", href: "war/bunyan.html" },
+                { text: "Siachen Conflict", href: "war/conflict.html" },
+                { text: "Operation Radd-ul-Fasaad", href: "war/Opt_Raddulfasad.html" },
+                { text: "War on Terror", href: "war/War on Terror.html" },
+                { text: "Operation Zarb-e-Azb", href: "war/Zarb Azb.html" },
+                // Internal Military Operations
+                { text: "Lal Masjid Operation", href: "internal operation/Lal Masjid Operation.html" },
+                { text: "Operation Black Thunderstorm", href: "internal operation/optblack.html" },
+                { text: "Operation Rah-e-Raast", href: "internal operation/raast.html" },
+                { text: "Karachi Airport Attack", href: "internal operation/Karachi Airport Attack.html" },
+                // Terrorist Attacks & Responses
+                { text: "Marriott Hotel Bombing", href: "torrirst-attack/bombing.html" },
+                { text: "GHQ Attack", href: "torrirst-attack/GHQAttack.html" },
+                { text: "APS Peshawar Attack ", href: "torrirst-attack/Peshawarschool.html" },
+                { text: "", href: "torrirst-attack/" },
+                // Military Strategy and Structure
+                { text: "Pakistan Army Structure", href: "military/army.html" },
+                { text: "Nuclear Doctrine and Deterrence", href: "military/Cold Star/Nuclear Doctrine and Deterrence.html" },
+                { text: "Role of ISI in Warfare", href: "military/Role-ISI-Warfare.html" },
+                { text: "Cold Start Doctrine (India) and Pakistan's Response", href: "military/.html" },
+                // Geography & Places
+                { text: "Major Cities(Karachi, Lahore, Islamabad, Peshawar, Quetta)", href: "Geography&places/Major.html" },
+                { text: "Tourist Spots (Hunza Valley, Swat, Skardu, Fairy Meadows)", href: "Geography&places/Northern Pakistan.html" },
+                // Culture and Traditions
+                { text: "Pakistan Languages(Udru,Punjabi,Sindhi,Pashto,Balochi)", href: "Culture and development/languages.html" },
+                { text: "Festivals(Eid,Basanta,Urs, Independence day)", href: "Culture and development/festivals.html" },
+                { text: "Traditional CLothing(Shalwar Kameez,Ajrak,Sindhi topi)", href: "Culture and development/clothing.html" },
+                { text: "Pakistan Cuisine(Biryani,Nihari,Chaplin Kabab)", href: "Culture and development/cuisine.html" },
+                { text: "Music and dance(Qawwali,Folk Music)", href: "Culture and development/music.html" },
+                { text: "Literature and Poetry", href: "Culture and development/poetry.html" },
+
+                // Economy and Development
+                { text: "Major Exports and Imports", href: "economy and devolopment/imp_exp.html" },
+                { text: "CPEC (China-Pakistan Economic Corridor)", href: "economy and devolopment/pak_china.html" },
+                { text: "Infrastructure Development", href: "economy and devolopment/infrastructure.html" },
+                { text: "Education System", href: "economy and devolopment/Education.html" },
+                { text: "Challenges and Opportunities", href: "economy and devolopment/opp_challenges.html" },
+
+                // sportsCulture and development/
+                { text: "Cricket (History, Famous Players, World Cup Wins)", href: "sports/cricket.html" },
+                { text: "Hockey", href: "sports/hockey.html" },
+                { text: "Football", href: "sports/football.html" },
+                { text: "Other Sports (Wrestling)", href: "sports/othersports.html" },
+                { text: "* Famous Athletes", href: "sports/athletes.html" },
+
+                // Politics and Government/
+                { text: "Political History of Pakistan", href: "Politics and Government/politicalparties.html" },
+                { text: "Current Political Parties and Leaders", href: "Politics and Government/politicalparties.html" },
+                { text: "Parliamentary System and Elections", href: "Politics and Government/parliment.html" },
+                { text: "Judiciary and Law", href: "Politics and Government/law.html" },
+                { text: "Foreign Policy", href: "Politics and Government/ForeignPolicy.html" },
+                { text: " Role of Military in Politics", href: "Politics and Government/.html" },
+            ];
+
+            const $searchInput = $("#searchInput");
+            const $suggestionList = $("#suggestionList");
+
+            // Handle typing input
+            $searchInput.on("input", function () {
+                const query = $(this).val().toLowerCase().trim();
+                $suggestionList.empty();
+
+                if (query) {
+                    const matches = pages
+                        .filter(page => page.text.toLowerCase().includes(query))
+                        .slice(0, 5);
+
+                    if (matches.length > 0) {
+                        matches.forEach(match => {
+                            $suggestionList.append(
+                                `<li class="list-group-item list-group-item-action" data-href="${match.href}">${match.text}</li>`
+                            );
+                        });
+                        $suggestionList.show();
+                    } else {
+                        $suggestionList.hide();
+                    }
+                } else {
+                    $suggestionList.hide();
+                }
+            });
+
+            // Suggestion click → go to page
+            $(document).on("click", "#suggestionList li", function () {
+                const href = $(this).data("href");
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+
+            // Enter key → go to first match (only if query is not empty)
+            $searchInput.on("keypress", function (e) {
+                if (e.which === 13) {
+                    e.preventDefault();
+                    const query = $(this).val().toLowerCase().trim();
+                    if (!query) return;
+
+                    const match = pages.find(page => page.text.toLowerCase().includes(query));
+                    if (match) {
+                        window.location.href = match.href;
+                    }
+                }
+            });
+
+            // Click outside → hide suggestion box
+            $(document).on("click", function (e) {
+                if (!$(e.target).closest(".search-box").length) {
+                    $suggestionList.hide();
+                }
+            });
+        });
+    </script>
+
+
+    <!-- =================== -->
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+
+    <!-- ==================== -->
+     <!-- Toastr JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            emailjs.sendForm('service_1tnlp2w', 'template_4j86rdo', this)
+                .then(() => {
+                    console.log("Message sent successfully!");
+                    toastr.success("Message sent successfully!");
+                    this.reset(); // clear the form
+                })
+                .catch((error) => {
+                    toastr.error("Failed to send message. Please try again.");
+                    console.error("Error sending message:", error);
+                });
+        });
+
+    </script>
+
+
+<!-- search click -->
+<script>
+    document.getElementById("searchIcon").addEventListener("click", function () {
+      const searchValue = document.getElementById("searchInput").value.trim();
+      if (searchValue !== "") {
+        // Redirect to Google search with the query
+        window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(searchValue);
+      } else {
+        alert("Please enter something to search!");
+      }
+    });
+  </script>
+  <!-- ========== mic -->
+  <script>
+    // Mic icon and input field
+    const micIcon = document.querySelector('.fa-microphone');
+    const searchInput = document.getElementById('searchInput');
+  
+    // Web Speech API
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US'; // You can change to 'ur-PK' for Urdu
+      recognition.continuous = false; // Stop after one phrase
+      recognition.interimResults = false;
+  
+      micIcon.addEventListener('click', () => {
+        recognition.start(); // Start listening
+      });
+  
+      recognition.onresult = function (event) {
+        const spokenText = event.results[0][0].transcript;
+        searchInput.value = spokenText; // Show in input
+      };
+  
+      recognition.onerror = function (event) {
+        console.error("Speech recognition error:", event.error);
+        alert("Voice recognition error. Try again.");
+      };
+      
+    } else {
+      alert("Speech recognition not supported in this browser.");
+    }
+  </script>
+  
+
+  
+  
+
+</body>
+
+</html>
