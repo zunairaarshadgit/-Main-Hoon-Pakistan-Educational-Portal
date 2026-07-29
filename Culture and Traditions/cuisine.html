@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pakistani Cuisines</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Georgia', serif;
+      line-height: 1.8;
+    }
+    .container-custom {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+    }
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .infobox {
+      float: right;
+      margin: 0 0 20px 20px;
+      width: 260px;
+      background-color: #f8f9fa;  
+      border: 1px solid #a2a9b1;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    .infobox .carousel-inner {
+      width: 100%;
+      height: 300px;
+    }
+    .infobox .carousel-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #a2a9b1;
+      cursor: pointer;
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      font-size: 1.5rem;
+      margin-top: 30px;
+    }
+    p {
+      text-align: justify;
+    }
+    blockquote {
+      border-left: 3px solid #ccc;
+      padding-left: 10px;
+      font-style: italic;
+      color: #555;
+    }
+    @media (max-width: 768px) {
+      .infobox {
+        float: none;
+        width: 100%;
+        margin: 0 auto 20px auto;
+      }
+    }
+    .modal-img {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    .modal-content-img {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .download-btn {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #fff;
+      background-color: #0d6efd;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-custom">
+    <h1 class="title">Traditional Pakistani Cuisines</h1>
+
+    <div class="infobox">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../images/biryani.jpg" class="d-block w-100 slider-img" alt="Biryani">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/chai.jpg" class="d-block w-100 slider-img" alt="Karahi">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/kheer.jpg" class="d-block w-100 slider-img" alt="Desserts">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      
+      <strong>Region:</strong> Pakistan<br />
+      <strong>Type:</strong> Traditional Cuisine<br />
+      <strong>Famous Dishes:</strong> Biryani, Nihari, Karahi, Haleem<br />
+      <a href="../pdf/Traditional Pakistani Cuisines.pdf" download class="download-btn">Download PDF Guide</a>
+    </div>
+
+    <p>
+      Pakistani cuisine is a flavorful blend of regional traditions, rich spices, and cultural heritage. Influenced by Central Asian, Persian, and Indian cuisines, it offers a diverse range of dishes that vary from province to province. From the rich curries of Punjab to the aromatic rice dishes of Sindh and the spicy delicacies of Balochistan, each region contributes to the vibrant food culture of the country.
+    </p>
+
+    <h2>Popular Dishes</h2>
+    <p>
+      Among the most iconic dishes in Pakistan is <strong>Biryani</strong>, a fragrant rice dish layered with marinated meat, herbs, and spices. <strong>Nihari</strong>, a slow-cooked beef stew, is traditionally eaten as a breakfast dish in Lahore and Karachi. <strong>Karahi</strong>, made with chicken or mutton, tomatoes, green chilies, and ginger, is another beloved specialty. <strong>Haleem</strong>, a thick porridge made of wheat, lentils, and meat, is especially popular during Ramadan and Muharram.
+    </p>
+
+    <h2>Street Food Culture</h2>
+    <p>
+      Street food is an essential part of Pakistani cuisine, offering affordable, quick, and delicious snacks. Favorites include <strong>gol gappay</strong> (crispy puffs filled with spicy water), <strong>chana chaat</strong> (spiced chickpea salad), <strong>bun kabab</strong> (local burgers), and <strong>pakoras</strong> (deep-fried fritters). Street vendors in cities like Lahore and Karachi are renowned for their flavorful and hygienic offerings.
+    </p>
+
+    <h2>Breads and Accompaniments</h2>
+    <p>
+      Bread is central to Pakistani meals. <strong>Roti</strong>, <strong>naan</strong>, and <strong>paratha</strong> are the most commonly consumed types. These are typically served with lentils, vegetables, and meat curries. Chutneys, pickles, and yogurt-based raitas are popular side accompaniments, enhancing the flavor of the meal.
+    </p>
+
+    <h2>Traditional Desserts</h2>
+    <p>
+      Pakistani desserts are rich, sweet, and often include milk, sugar, and nuts. Notable treats include <strong>gulab jamun</strong>, <strong>jalebi</strong>, <strong>kheer</strong> (rice pudding), <strong>halwa</strong>, and <strong>barfi</strong>. These desserts are commonly served during festivals, weddings, and religious celebrations.
+    </p>
+
+    <h2>Beverages</h2>
+    <p>
+      <strong>Chai</strong> (tea) is a national favorite, served in homes and on street corners across the country. Other popular drinks include <strong>lassi</strong> (a yogurt-based drink), <strong>falooda</strong> (a sweet milk-based dessert drink), and <strong>Rooh Afza</strong> in summers. Green tea or kahwa is particularly popular in Khyber Pakhtunkhwa and Kashmir.
+    </p>
+
+    <h2>Regional Variations</h2>
+    <p>
+      - <strong>Punjabi cuisine</strong> is known for its robust flavors and extensive use of dairy.<br>
+      - <strong>Sindhi food</strong> is spicy and deeply influenced by Mughlai traditions.<br>
+      - <strong>Balochi cuisine</strong> includes unique dishes like <em>Sajji</em>, whole lamb or chicken cooked over open fire.<br>
+      - <strong>Khyber Pakhtunkhwa and Pashtun regions</strong> offer hearty meat dishes, including kebabs and dumplings.<br>
+      - <strong>Kashmiri cuisine</strong> is known for delicacies like Rogan Josh and pink tea (Noon Chai).
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+      Pakistani cuisine is a vibrant reflection of the country’s rich history and diverse cultures. Whether it’s a home-cooked meal or a flavorful street snack, the food of Pakistan is known for its bold spices, aromatic flavors, and communal joy. As the country continues to gain recognition globally, its traditional dishes remain a source of pride and identity for its people.
+    </p>
+
+    <blockquote>
+      "Pakistani food is not just a meal, it's an experience rich with culture, warmth, and tradition."
+    </blockquote>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal-img">
+      <span class="close-btn" onclick="document.getElementById('imageModal').style.display='none'">&times;</span>
+      <img class="modal-content-img" id="imgInModal">
+      <a id="downloadBtn" class="download-btn" download>Download Image</a>
+    </div>
+
+    <script>
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imgInModal");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const sliderImgs = document.querySelectorAll(".slider-img");
+
+      sliderImgs.forEach(img => {
+        img.addEventListener("click", function() {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          downloadBtn.href = this.src;
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  position: relative;
+  background-image: url('images/image_1.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+  /* Text color to make it visible on dark overlay */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+/* Overlay effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.767);
+  /* White overlay with transparency */
+  z-index: -1;
+  /* Ensure the overlay is behind content */
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1000;
+}
+
+.sticky-header .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.sticky-header .phone-email {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.sticky-header .icon {
+  margin-left: 10px;
+  color: #1a00d4;
+  transition: color 0.3s;
+}
+
+.sticky-header .icon:hover {
+  color: #0d3b6e;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+button {
+  padding: 1px 16px;
+  cursor: pointer;
+  border-radius: 3px;
+
+}
+
+/* Navbar */
+.navbar-custom {
+  width: 100%;
+  background-color: #0c5a17dc;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9;
+}
+
+.navbar-news-ticker {
+  width: 100%;
+  background-color: #b30000;
+  border-top: 3px solid #ffcc00;
+  border-bottom: 3px solid #ffcc00;
+}
+
+.navbar-custom a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.navbar-custom a:hover {
+  background-color: #3c6bc2;
+  border-radius: 4px;
+}
+
+.navbar-custom .navbar-brand h2 {
+  margin: 0;
+}
+
+.navbar-custom .navbar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Logo and Search Bar */
+.logo {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+  max-width: 100%;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #dfe1e5;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-radius: 24px;
+  padding: 10px 20px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Container or Section background image */
+
+.buttons button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex: 0 0 auto;
+  /* Default (Laptop/Desktop View) layout (1 button per row) */
+}
+
+.buttons button:hover {
+  background-color: #e8e8e8;
+}
+
+/* Mobile view ke liye */
+@media (max-width: 768px) {
+
+  /* Jab screen ki width 768px se kam ho */
+  .buttons {
+    flex-wrap: wrap;
+    /* Buttons ko wrap karne ka option */
+  }
+
+  .buttons button {
+    flex: 0 0 48%;
+    /* 2 buttons per row, flex-basis 48% */
+    max-width: 48%;
+  }
+}
+
+/* Agar aur chhoti screens hain, jaise 414px se kam */
+@media (max-width: 414px) {
+  .buttons button {
+    flex: 0 0 100%;
+    /* 1 button per row */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+}
+
+/*  */
+
+.donation-section {
+  background: #fff;
+  padding: 30px;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.donation-section h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.donation-section p {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.donation-section input[type="number"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.donation-section button {
+  padding: 12px 20px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.donation-section button:hover {
+  background: #27ae60;
+}
+
+.payment-options {
+  margin-top: 20px;
+}
+
+.payment-options a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #3498db;
+}
+
+.payment-options a:hover {
+  text-decoration: underline;
+}
+
+
+/* news */
+.news-ticker {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  padding: 10px 0;
+  overflow: hidden;
+
+  width: 100%;
+}
+
+.ticker-title {
+  padding: 0 20px;
+  font-size: 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ticker-wrapper {
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 25s linear infinite;
+}
+
+.ticker-content span {
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 15px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .ticker-title {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .ticker-content span {
+    font-size: 13px;
+    padding: 0 20px;
+  }
+}
